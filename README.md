@@ -12,23 +12,22 @@
 
 
 #### [lightaime/*cs231n*](https://github.com/lightaime/cs231n)
-    *cs231n* assignments
+*cs231n* assignments
 
 #### [cs231n/*cs231n*.github.io](https://github.com/cs231n/cs231n.github.io)
     
 ####  [wjbKimberly/*cs231n*_spring_2017_assignment](https://github.com/wjbKimberly/cs231n_spring_2017_assignment)
-    My implementations of *cs231n* 2017 Jupyter Notebook
+My implementations of *cs231n* 2017 Jupyter Notebook
 
 #### [Halfish/*cs231n*](https://github.com/Halfish/cs231n)
-    斯坦福 *cs231n* 作业代码实践
- Jupyter Notebook
+斯坦福 *cs231n* 作业代码实践Jupyter Notebook
 
 
 ####  [bruceoutdoors/*CS231n*](https://github.com/bruceoutdoors/CS231n) 
-    my assignment solutions for *CS231n* Convolutional Neural Networks for Visual Recognition
-     Jupyter Notebook
+my assignment solutions for *CS231n* Convolutional Neural Networks for Visual Recognition
+Jupyter Notebook
     
-*  [mbadry1/*CS231n*-2017-Summary](https://github.com/mbadry1/CS231n-2017-Summary)
+####  [mbadry1/*CS231n*-2017-Summary](https://github.com/mbadry1/CS231n-2017-Summary)
     After watching all the videos of the famous Standford's *CS231n* course that took place in 2017, i decided to take summ…
 
 ### License
