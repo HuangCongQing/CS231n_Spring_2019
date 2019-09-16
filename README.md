@@ -6,6 +6,14 @@
 
 [http://cs231n.stanford.edu/](http://cs231n.stanford.edu/)
 
+### Contents
+
+
+
+### Materials
+
+
+
 
 ### Reference
 #### [CS231n官方笔记授权翻译总集-知乎](https://zhuanlan.zhihu.com/p/21930884)
@@ -28,7 +36,7 @@ my assignment solutions for *CS231n* Convolutional Neural Networks for Visual 
 Jupyter Notebook
     
 ####  [mbadry1/*CS231n*-2017-Summary](https://github.com/mbadry1/CS231n-2017-Summary)
-    After watching all the videos of the famous Standford's *CS231n* course that took place in 2017, i decided to take summ…
+After watching all the videos of the famous Standford's *CS231n* course that took place in 2017, i decided to take summ…
 
 ### License
 
