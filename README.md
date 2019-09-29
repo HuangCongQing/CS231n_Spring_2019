@@ -12,6 +12,9 @@
 
 ### Materials
 
+#### Videos
+
+* [cs231n winter 2016 ](https://www.youtube.com/channel/UCPk8m_r6fkUSYmvgCBwq-sw/playlists)
 
 
 
