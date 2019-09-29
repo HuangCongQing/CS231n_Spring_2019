@@ -15,7 +15,10 @@
 #### Videos
 
 * [cs231n winter 2016 ](https://www.youtube.com/channel/UCPk8m_r6fkUSYmvgCBwq-sw/playlists)
-
+* [斯坦福CS231n Spring 2017开放全部课程视频](https://zhuanlan.zhihu.com/p/28488268)
+  * 课件地址：[Index of /slides/2017](http://cs231n.stanford.edu/slides/2017/)
+  * 课程视频地址：[https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv](https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv)
+  * Bilibili视频地址：[斯坦福2017季CS231n深度视觉识别课程视频（by Fei-Fei Li, Justin Johnson, Serena Yeung）（英文字幕）](http://www.bilibili.com/video/av13260183/#page=1)
 
 
 ### Reference
