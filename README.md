@@ -5,7 +5,7 @@
 @ [重庆](https://github.com/HuangCongQing/) 於2019年秋季
 
 
-* homepage：[http://cs231n.stanford.edu/](http://cs231n.stanford.edu/)
+* Homepage：[http://cs231n.stanford.edu/](http://cs231n.stanford.edu/)
 * Syllabus（教学大纲）：http://cs231n.stanford.edu/syllabus.html
 * Course Notes ：http://cs231n.github.io/
 ### Contents
