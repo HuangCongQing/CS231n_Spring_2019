@@ -10,7 +10,7 @@
 * Course Notes ：http://cs231n.github.io/
 ### Contents
 
-
+* [本人笔记](https://www.yuque.com/huangzhongqing/zx8rb3)
 
 ### Materials
 
