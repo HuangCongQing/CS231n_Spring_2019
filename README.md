@@ -5,7 +5,7 @@
 @ [重庆](https://github.com/HuangCongQing/) 於2019年秋季
 
 **建议先看笔记，然后按着PPT再看视频**
-- [CS231n官方笔记授权翻译](https://zhuanlan.zhihu.com/p/21930884)
+[CS231n官方笔记授权翻译](https://zhuanlan.zhihu.com/p/21930884)
 
 
 * Homepage：[http://cs231n.stanford.edu/](http://cs231n.stanford.edu/)
