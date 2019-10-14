@@ -13,13 +13,13 @@
 * Course Notes ：http://cs231n.github.io/
 ### Contents
 
-* [本人笔记](https://www.yuque.com/huangzhongqing/zx8rb3)
+* [个人视频笔记](https://www.yuque.com/huangzhongqing/zx8rb3)
 
 ### Materials
 
 #### Videos
 
-* [cs231n winter 2016【英文字幕】【youtube](https://www.youtube.com/channel/UCPk8m_r6fkUSYmvgCBwq-sw/playlists)
+* [cs231n winter 2016【英文字幕】【youtube】](https://www.youtube.com/channel/UCPk8m_r6fkUSYmvgCBwq-sw/playlists)
 * [2017中文版斯坦福视觉课CS231n【中文字幕】【bilibili】](https://space.bilibili.com/216720985/channel/detail?cid=32406)
 * [斯坦福CS231n Spring 2017课程视频](https://zhuanlan.zhihu.com/p/28488268)
   * 课件地址：[Index of /slides/2017](http://cs231n.stanford.edu/slides/2017/)
