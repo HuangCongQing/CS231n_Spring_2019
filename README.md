@@ -15,6 +15,10 @@
 
 * [个人视频笔记](https://www.yuque.com/huangzhongqing/zx8rb3)
 
+* https://github.com/mbadry1/CS231n-2017-Summary
+
+* [CS231n课堂笔记翻译PDF版本、吴恩达深度学习、机器学习笔记](https://blog.csdn.net/abc_138/article/details/78608609) 
+
 ### Materials
 
 #### Videos
