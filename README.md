@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: HCQ
+ * @Company(School): UCAS
+ * @Date: 2019-09-30 10:55:31
+ * @LastEditors: HCQ
+ * @LastEditTime: 2019-11-07 01:31:28
+ -->
 # CS231n_Spring_2019
 
 ##### Previous Years: [[Winter 2015]](http://cs231n.stanford.edu/2015) [[Winter 2016]](http://cs231n.stanford.edu/2016) [[Spring 2017]](http://cs231n.stanford.edu/2017) [[Spring 2018]](http://cs231n.stanford.edu/2018)
@@ -11,6 +19,10 @@
 * Homepage：[http://cs231n.stanford.edu/](http://cs231n.stanford.edu/)
 * Syllabus（教学大纲）：http://cs231n.stanford.edu/syllabus.html
 * Course Notes ：http://cs231n.github.io/
+
+* 下载github仓库部分文件夹：http://downgit.zhoudaxiaa.com/
+下载github文件夹粘贴入DownGit中，选择download即可;
+
 ### Contents
 
 * [个人视频笔记](https://www.yuque.com/huangzhongqing/zx8rb3)
