@@ -23,6 +23,11 @@
 * 下载github仓库部分文件夹：http://downgit.zhoudaxiaa.com/
 下载github文件夹粘贴入DownGit中，选择download即可;
 
+* Assignments
+  * [Assignment1](Assignments/Assignment1/)
+  * [Assignment2](Assignments/Assignment2/)
+  * [Assignment3](Assignments/Assignment3/)
+
 ### Contents
 
 * [个人视频笔记](https://www.yuque.com/huangzhongqing/zx8rb3)
