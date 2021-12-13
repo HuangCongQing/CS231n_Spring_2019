@@ -25,6 +25,7 @@ def load_CIFAR_batch(filename):
         Y = np.array(Y)
         return X, Y
 
+# 加载CIFAR10
 def load_CIFAR10(ROOT):
     """ load all of cifar """
     xs = []

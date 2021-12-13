@@ -9,7 +9,8 @@ class KNearestNeighbor(object):
 
     def __init__(self):
         pass
-
+    
+    # 训练   classifier = KNearestNeighbor()  classifier.train(X_train, y_train)
     def train(self, X, y):
         """
         Train the classifier. For k-nearest neighbors this is just
