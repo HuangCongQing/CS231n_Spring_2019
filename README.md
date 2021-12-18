@@ -3,8 +3,8 @@
  * @Author: HCQ
  * @Company(School): UCAS
  * @Date: 2019-09-30 10:55:31
- * @LastEditors: HCQ
- * @LastEditTime: 2019-11-07 01:31:28
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-12-18 20:39:39
  -->
 # CS231n_Spring_2019
 
@@ -66,7 +66,15 @@
 
 
 ### Assignments
+```
+# 配置虚拟环境
 
+pip install -r requirements.txt
+
+# scipy必须装1.2.1才行
+pip install scipy==1.2.1
+
+```
 
 * [lightaime](https://github.com/lightaime)/**[cs231n](https://github.com/lightaime/cs231n)**  2016
 * [Halfish/*cs231n*](https://github.com/Halfish/cs231n)  斯坦福 *cs231n* 作业代码实践Jupyter Notebook
