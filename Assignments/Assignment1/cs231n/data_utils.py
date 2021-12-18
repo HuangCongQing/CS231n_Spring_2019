@@ -8,38 +8,39 @@ from scipy.misc import imread
 import platform
 
 def load_pickle(f):
-    version = platform.python_version_tuple()
+    version = platform.python_version_tuple() # 不同version不同处理方式
     if version[0] == '2':
         return  pickle.load(f)
     elif version[0] == '3':
         return  pickle.load(f, encoding='latin1')
     raise ValueError("invalid python version: {}".format(version))
 
+# 加载每个文件pkl文件
 def load_CIFAR_batch(filename):
     """ load single batch of cifar """
     with open(filename, 'rb') as f:
-        datadict = load_pickle(f)
+        datadict = load_pickle(f) # 调用函数
         X = datadict['data']
         Y = datadict['labels']
-        X = X.reshape(10000, 3, 32, 32).transpose(0,2,3,1).astype("float")
-        Y = np.array(Y)
+        X = X.reshape(10000, 3, 32, 32).transpose(0,2,3,1).astype("float") # transpose成BxWxHxC
+        Y = np.array(Y) # 转成np格式
         return X, Y
 
-# 加载CIFAR10
+# 加载CIFAR10========================================
 def load_CIFAR10(ROOT):
     """ load all of cifar """
     xs = []
     ys = []
     for b in range(1,6):
         f = os.path.join(ROOT, 'data_batch_%d' % (b, ))
-        X, Y = load_CIFAR_batch(f)
+        X, Y = load_CIFAR_batch(f) # data(BxWxHxC), label
         xs.append(X)
         ys.append(Y)
-    Xtr = np.concatenate(xs)
+    Xtr = np.concatenate(xs) # train训练集
     Ytr = np.concatenate(ys)
     del X, Y
-    Xte, Yte = load_CIFAR_batch(os.path.join(ROOT, 'test_batch'))
-    return Xtr, Ytr, Xte, Yte
+    Xte, Yte = load_CIFAR_batch(os.path.join(ROOT, 'test_batch')) # test测试集
+    return Xtr, Ytr, Xte, Yte # 返回
 
 
 def get_CIFAR10_data(num_training=49000, num_validation=1000, num_test=1000,
@@ -261,3 +262,17 @@ def load_imagenet_val(num=None):
         X = X[:num]
         y = y[:num]
     return X, y, class_names
+
+# 测试
+if __name__ == "__main__":
+    print ('测试(hcq)')
+    cifar10_dir = 'cs231n/datasets/cifar-10-batches-py' # 数据集目录
+    # Cleaning up variables to prevent loading data multiple times (which may cause memory issue)
+    try:
+        del X_train, y_train
+        del X_test, y_test
+        print('Clear previously loaded data.')
+    except:
+        pass
+    # 调用
+    X_train, y_train, X_test, y_test = load_CIFAR10(cifar10_dir)

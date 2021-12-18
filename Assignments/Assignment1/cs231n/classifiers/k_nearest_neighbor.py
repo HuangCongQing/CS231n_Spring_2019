@@ -3,7 +3,7 @@ from builtins import object
 import numpy as np
 from past.builtins import xrange
 
-
+# KNN类名
 class KNearestNeighbor(object):
     """ a kNN classifier with L2 distance """
 
@@ -25,6 +25,7 @@ class KNearestNeighbor(object):
         self.X_train = X
         self.y_train = y
 
+    # 预测
     def predict(self, X, k=1, num_loops=0):
         """
         Predict labels for test data using this classifier.
@@ -51,6 +52,7 @@ class KNearestNeighbor(object):
 
         return self.predict_labels(dists, k=k)
 
+    # 2循环：用了两个循环的算法实现（L2距离）
     def compute_distances_two_loops(self, X):
         """
         Compute the distance between each test point in X and each training point
@@ -83,6 +85,7 @@ class KNearestNeighbor(object):
                 # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
 
+    # 1循环：用了一个循环的算法实现（L2距离）# 使用了广播机制，省去了一个循环.
     def compute_distances_one_loop(self, X):
         """
         Compute the distance between each test point in X and each training point
@@ -107,6 +110,7 @@ class KNearestNeighbor(object):
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
 
+    # 无循环：不用循环的算法实现（L2距离）
     def compute_distances_no_loops(self, X):
         """
         Compute the distance between each test point in X and each training point
@@ -137,6 +141,7 @@ class KNearestNeighbor(object):
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
 
+    # 预测标签
     def predict_labels(self, dists, k=1):
         """
         Given a matrix of distances between test points and training points,
