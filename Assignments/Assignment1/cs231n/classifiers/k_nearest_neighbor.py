@@ -67,9 +67,9 @@ class KNearestNeighbor(object):
           is the Euclidean distance between the ith test point and the jth training
           point.
         """
-        num_test = X.shape[0]
+        num_test = X.shape[0] # X_test)  X测试集
         num_train = self.X_train.shape[0]
-        dists = np.zeros((num_test, num_train))
+        dists = np.zeros((num_test, num_train)) # 初始化L2距离 500x5000
         for i in range(num_test):
             for j in range(num_train):
                 #####################################################################
@@ -79,11 +79,14 @@ class KNearestNeighbor(object):
                 # not use a loop over dimension, nor use np.linalg.norm().          #
                 #####################################################################
                 # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-                pass
+                # 使用numpy库对两个向量进行欧几里得距离计算
+                # 首先在两重循环中将测试集和训练集各一行向量通过减法运算后，平方，然后求和，最后开根号，这样就完成了欧式距离计算
+                # numpy.square（）平方函数返回一个新数组，该数组的元素值为源数组元素的平方。 源阵列保持不变
+                dists[i,j] = np.sqrt(np.sum(np.square(X[i]) - self.X_train[j]))
+                # pass
 
                 # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-        return dists
+        return dists # (500, 5000)
 
     # 1循环：用了一个循环的算法实现（L2距离）# 使用了广播机制，省去了一个循环.
     def compute_distances_one_loop(self, X):
@@ -104,8 +107,10 @@ class KNearestNeighbor(object):
             # Do not use np.linalg.norm().                                        #
             #######################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-            pass
+            # 使用了广播机制，省去了一个循环.
+            # X[i] -> shape(D,)    self.X.train -> shape(num_train, D)
+            dists[i, :] = np.sqrt(np.sum(np.square(X[i] - self.X_train), axis = 1))
+            # pass
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
@@ -136,12 +141,24 @@ class KNearestNeighbor(object):
         #########################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-        pass
+        d1 = np.sum(np.square(X), axis = 1, keepdims = True)
+        d2 = - 2 * np.dot(X, self.X_train.T)
+        d3 = np.sum(np.square(self.X_train.T), axis = 0, keepdims = True)
+        
+        assert(d1.shape == (num_test, 1))
+        assert(d2.shape ==(num_test, num_train))
+        assert(d3.shape == (1, num_train))
+        dists = np.sqrt(d1 + d2 + d3)
+        # 参考： https://blog.csdn.net/qq_33445835/article/details/104414989
+
+        # pass
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
 
     # 预测标签
+    # 若k个近邻投票产生多个结果时，选用标签较小的那个，此要求在本次示例中已完成，
+    # np.bicount()会返回0到数组中最大值出现的次数数组，np.argmax会返回次数数组中次数最多的索引（如果有多个，则返回最前面的），即标签较小的。
     def predict_labels(self, dists, k=1):
         """
         Given a matrix of distances between test points and training points,
@@ -170,7 +187,12 @@ class KNearestNeighbor(object):
             #########################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-            pass
+            # pass
+            # dists是一个确定的矩阵：：纵轴1维测试集，横轴2维训练集(知道label)
+            # 得到label ，即y_train
+            # argsort()是将X中的元素(按照列)从小到大排序后，提取对应的索引index，然后输出
+            # 沿着列向右(每行)的元素进行排序
+            closest_y = self.y_train[np.argsort(dists[i])[0: k]].astype(np.int32)
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
             #########################################################################
@@ -182,7 +204,9 @@ class KNearestNeighbor(object):
             #########################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-            pass
+            # pass
+            # np.bicount()会返回0到数组中最大值出现的次数数组，np.argmax会返回次数数组中次数最多的索引（如果有多个，则返回最前面的），即标签较小的。
+            y_pred[i] = np.argmax(np.bincount(closest_y)) # 出现次数最多的label
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
