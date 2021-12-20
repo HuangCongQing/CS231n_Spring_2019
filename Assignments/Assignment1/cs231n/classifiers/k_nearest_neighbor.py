@@ -82,7 +82,8 @@ class KNearestNeighbor(object):
                 # 使用numpy库对两个向量进行欧几里得距离计算
                 # 首先在两重循环中将测试集和训练集各一行向量通过减法运算后，平方，然后求和，最后开根号，这样就完成了欧式距离计算
                 # numpy.square（）平方函数返回一个新数组，该数组的元素值为源数组元素的平方。 源阵列保持不变
-                dists[i,j] = np.sqrt(np.sum(np.square(X[i]) - self.X_train[j]))
+                # 我写错了，少右括号：dists[i,j] = np.sqrt(np.sum(np.square(X[i]) - self.X_train[j]))
+                dists[i,j] = np.sqrt(np.sum(np.square(X[i] - self.X_train[j])))
                 # pass
 
                 # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
@@ -109,7 +110,11 @@ class KNearestNeighbor(object):
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
             # 使用了广播机制，省去了一个循环.
             # X[i] -> shape(D,)    self.X.train -> shape(num_train, D)
-            dists[i, :] = np.sqrt(np.sum(np.square(X[i] - self.X_train), axis = 1))
+            # 接下来实现一重循环计算距离。需要注意的是，内层循环去掉后，只能直接对x_train操作，需要注意求和时，注明求和的纬度。
+            # 例如np.sum(X,axis= 1)是在行维度上进行求和，即把每一行加起来；np.sum(X , axis = 0)是在列维度上进行求和，即把每一列加起来。
+            #  求和是需注意，这次是对列纬度上的求和，即把每一列加起来后再开根号
+            # dists[i, :] = np.sqrt(np.sum(np.square(X[i,:] - self.X_train), axis = 1))
+            dists[i,:] = np.sqrt(np.sum(((X[i,:] - self.X_train) ** 2 ) , axis=1))
             # pass
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
@@ -141,15 +146,28 @@ class KNearestNeighbor(object):
         #########################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-        d1 = np.sum(np.square(X), axis = 1, keepdims = True)
-        d2 = - 2 * np.dot(X, self.X_train.T)
-        d3 = np.sum(np.square(self.X_train.T), axis = 0, keepdims = True)
+        # 方法1（暂时有问题）===========================================
+
+        # d1 = np.sum(np.square(X), axis = 1, keepdims = True)
+        # d2 = - 2 * np.dot(X, self.X_train.T)
+        # d3 = np.sum(np.square(self.X_train.T), axis = 0, keepdims = True)
         
-        assert(d1.shape == (num_test, 1))
-        assert(d2.shape ==(num_test, num_train))
-        assert(d3.shape == (1, num_train))
-        dists = np.sqrt(d1 + d2 + d3)
+        # assert(d1.shape == (num_test, 1))
+        # assert(d2.shape ==(num_test, num_train))
+        # assert(d3.shape == (1, num_train))
+        # dists = np.sqrt(d1 + d2 + d3)
         # 参考： https://blog.csdn.net/qq_33445835/article/details/104414989
+
+
+        # 方法2=============================================
+        # 要计算L2距离，使用向量化代码，则只能将完全平方项展开,然后加起来
+        # 其中乘法部分注意维度
+        # 使用reshape触发broadcast
+        dists += np.sum(X ** 2, axis=1).reshape(num_test,1)
+        dists += np.sum(self.X_train ** 2, axis=1).reshape(1,num_train)
+        dists -= 2 * np.dot(X, self.X_train.T)
+        dists = np.sqrt(dists)
+        # https://blog.csdn.net/SpicyCoder/article/details/94992552#t3
 
         # pass
 
